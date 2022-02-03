@@ -1,8 +1,12 @@
 class ClientsController < ApplicationController
 
+  def index
+    render json: Client.all
+  end
+
   def show
     client = find_params
-    render json: client
+    render json: client, serializer: TotalAmountMembershipsSerializer
   end
 
   def update
