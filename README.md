@@ -65,17 +65,17 @@ Write migrations to create the following tables:
 A user should be able to:
 
 - **Create a new membership**
-
+post/memberships
   - New membership require a gym_id, client_id, and membership charge.
   - Validation: A client can have only one membership with gym
 
 - **View one specific gym**
-
+get/gyms/:id (show route)
   - if `Gym` exists, return JSON data for the gym
   - else return error with a status code
 
 - **Delete a gym**
-
+destroy/gyms/:id
   - If the `Gym` exists, it should be removed from the database, along with
     any `Membership`s that are associated with it (a `Membership` belongs
     to a `Gym`, so you need to delete the `Membership`s before the
@@ -94,12 +94,14 @@ A user should be able to:
     ```
 
 - **View one specific client**
-
+get/clients/:id (show route)
   - if `Client` exists, return JSON data for the Client
   - else return error with a status code
 
 ### Bonus
-
 - On client show route, send response that includes total amount for all
   membership for that client.
+
+  get/gyms , patch/gyms (update route)
+  get/clients, patch/clients (update route)
 - Create index and update routes for gym and client
